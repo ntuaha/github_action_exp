@@ -7,7 +7,7 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-  - cron: * * * * *
+  - cron: */2 * * * *
 jobs:
   build:
     name: Set up environment
