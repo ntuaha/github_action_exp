@@ -38,15 +38,15 @@ def main():
     browser.close()  
 
     url = "http://35.194.189.215:8000/insert" 
-    ct = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    data = {"name":title,"age":int(time.time()),"address":ct,"salary":int(time.time())}
+    ct = datetime.datetime.now()
+    data = {"name":title,"age":int(time.time()),"address":ct.strftime("%Y-%m-%d %H:%M:%S"),"salary":int(time.time())}
     payload = json.dumps(data).encode("utf-8")
     headers = {
     'Content-Type': 'application/json'
     }
     r = requests.request("POST", url, headers=headers, data=payload)
     print(r.text)
-    with open(f'./data/{ct}.txt','w+') as f:
+    with open(f'./data/{ct.strftime("%Y%m%d%H%M%S")}.txt','w+') as f:
         f.write(json.dumps(data))
     print('輸出成功')
 
