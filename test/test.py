@@ -33,17 +33,19 @@ def init_browser(chrome_path=None):
 def main():
     browser = init_browser()
     browser.get('http://www.google.com.tw')
+    title = browser.title
     print(browser.title)
-    browser.close()    
-
+    browser.close()  
+    
     url = "http://35.194.189.215:8000/insert" 
-    data = {"name":browser.title,"age":int(time.time()),"address":datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),"salary":int(time.time())}
+    data = {"name":title,"age":int(time.time()),"address":datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),"salary":int(time.time())}
     payload = json.dumps(data).encode("utf-8")
     headers = {
     'Content-Type': 'application/json'
     }
     r = requests.request("POST", url, headers=headers, data=payload)
     print(r.text)
+    
     
 
 
