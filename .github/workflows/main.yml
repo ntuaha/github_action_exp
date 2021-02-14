@@ -25,8 +25,23 @@ jobs:
     - name: Install Google Chrome # Using shell script to install Google Chrome
       run: |
         chmod +x ./scripts/InstallChrome.sh
-        ./scripts/InstallChrome.sh      
+        ./scripts/InstallChrome.sh
+    - name: create a folder to save data
+      run: |
+        mkdir data
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.GCP_OTP_KEY }}
+        name: github # optional
+        known_hosts: ${{ secrets.GCP_HOST }}        
     - name: Send msg
       run:
         python test/test.py
+    - name: rsync over ssh
+      env:
+        HOST: ${{ secrets.GCP_HOST }}
+        USER: ${{ secrets.GCP_USERNAME }}
+      run: |
+        rsync ./data/ $USER@$HOST:/home/$USER/reviews/
   
