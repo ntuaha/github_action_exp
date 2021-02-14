@@ -36,5 +36,5 @@ jobs:
       run: |
         echo "${{secrets.GCP_OTP_KEY}}" > deploy_key
         chmod 600 ./deploy_key # 改變 key 的 mod
-        rsync -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' ./data/* ${{secrets.GCP_USERNAME}}@${{secrets.GCP_HOST}}:/home/${{secrets.GCP_USERNAME}}/reviews/
+        rsync -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' -azrvh ./data/* ${{secrets.GCP_USERNAME}}@${{secrets.GCP_HOST}}:/home/${{secrets.GCP_USERNAME}}/reviews/data
   
