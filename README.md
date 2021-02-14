@@ -14,6 +14,7 @@ action的實驗筆記
 ## rysnc 
 1. https://docs.github.com/en/actions/reference/encrypted-secrets
 2. https://github.com/marketplace/actions/install-ssh-key
+3. https://stackoverflow.com/questions/63093761/github-action-rsync-setup-keeps-on-failing
 
 ## selenium 教學
 1. https://www.learncodewithmike.com/2020/05/python-selenium-scraper.html
