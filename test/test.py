@@ -47,7 +47,7 @@ def main():
     r = requests.request("POST", url, headers=headers, data=payload)
     print(r.text)
     with open(f'./data/{ct}.txt','w+') as f:
-        f.write(json.dumps(data).encode("utf-8"))
+        f.write(json.dumps(data))
     print('輸出成功')
 
     
