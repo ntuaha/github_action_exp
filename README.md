@@ -15,7 +15,8 @@ action的實驗筆記
 1. https://docs.github.com/en/actions/reference/encrypted-secrets
 2. https://github.com/marketplace/actions/install-ssh-key
 3. https://stackoverflow.com/questions/63093761/github-action-rsync-setup-keeps-on-failing
-4. 記得生成完指令後，要把private key 加入 cat ~/.ssh/github >>~/.ssh/authorized_keys
+4. 記得生成完指令後，要把private key 加入 cat ~/.ssh/github.pub >>~/.ssh/authorized_keys
+5. 測試用指令 rsync -azrvh ./data/* ntuaha@35.194.189.215:/home/ntuaha/reviews/data
 
 ## selenium 教學
 1. https://www.learncodewithmike.com/2020/05/python-selenium-scraper.html
